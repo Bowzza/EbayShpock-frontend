@@ -1,0 +1,55 @@
+<!-- <div class="card mb-3 mt-3"  style="max-width: 540px;" >
+    <div class="row g-0" [class.darkCard]="darkmode" >
+      <div class="col-md-4">
+        <img *ngIf="product.img !== 'no img'" [src]="product.img" class="img-fluid rounded-start product-img" alt="no img">
+        <img *ngIf="product.img == 'no img'" src="assets/noimg.jpg" class="img-fluid rounded-start" alt="no img">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{product.productName}}</h5>
+          <div class="d-flex justify-content-end align-items-center gap-3">
+            <img *ngIf="product?.shop == 'Shpock'" src="assets/shpock.svg" alt="shpock" style="width: 100px;">
+            <img *ngIf="product?.shop == 'Ebay'" src="assets/ebay.webp" alt="shpock" style="width: 100px;">
+            <h3 class="card-text">{{product.price|currency:'EUR':true}}</h3>
+          </div>
+          <div class="link-section d-flex justify-content-end align-items-center">
+            <span class="me-3 icon-absolute" *ngIf="!product.inWishlist && !isAuth" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-bag-check" style="font-size: 30px;"></i></span>
+            <span class="me-3 icon-absolute" *ngIf="!product.inWishlist && isAuth" (click)="addProduct(product)"><i class="bi bi-bag-check" style="font-size: 30px;"></i></span>
+            <span class="me-3 icon-absolute" *ngIf="product.inWishlist && isAuth" (click)="removeProduct(product._id)"><i class="bi bi-bag-check-fill" style="font-size: 30px;"></i></span>
+            <a [href]="product.link" target="_blank" class="icon-absolute"><i class="bi bi-box-arrow-up-right" style="font-size: 30px;"></i></a>
+            <button class="mt-2 ms-3" (click)="openProductInfo(product)" mat-button><i class="bi bi-info-circle-fill" style="font-size: 25px;"></i></button>
+          </div>
+          <div *ngIf="showBell" class="mt-5 d-flex justify-content-end">
+            <i *ngIf="!product?.notify" (click)="addProductToNotify(product)" class="bi bi-bell position-absolute bell"></i>
+            <i *ngIf="product?.notify" (click)="removeProductFromNotify(product)" class="bi-bell-fill position-absolute bell"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+</div> -->
+<div class="card position-relative" [class.darkCard]="darkmode" style="width: 18rem;">
+  <img [src]="product.img" class="card-img-top" alt="no img" height="200" width="200">
+  <div class="card-body">
+    <div class="d-flex flex-column align-items-center">
+      <p class="crop">{{product.productName}}</p>
+      <div class="d-flex justify-content-end align-items-center gap-3">
+        <img *ngIf="product?.shop == 'Shpock'" src="assets/shpock.svg" alt="shpock" style="width: 100px;">
+        <img *ngIf="product?.shop == 'Ebay'" src="assets/ebay.webp" alt="shpock" style="width: 100px;">
+        <h3 class="card-text">{{product.price|currency:'EUR':true}}</h3>
+      </div>
+      <div class="link-section d-flex justify-content-center align-items-center">
+        <span class="me-3 icon-absolute" *ngIf="!product.inWishlist && !isAuth" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-bag-check" style="font-size: 25px;"></i></span>
+        <span class="me-3 icon-absolute" *ngIf="!product.inWishlist && isAuth" (click)="addProduct(product)"><i class="bi bi-bag-check" style="font-size: 25px;"></i></span>
+        <span class="me-3 icon-absolute" *ngIf="product.inWishlist && isAuth" (click)="removeProduct(product._id)"><i class="bi bi-bag-check-fill" style="font-size: 25px;"></i></span>
+        <!-- <button class="mt-2 ms-3" (click)="openProductInfo(product)" mat-button><i class="bi bi bi-info-circle" style="font-size: 25px;"></i></button> -->
+        <i class="bi bi bi-info-circle mt-1" (click)="openProductInfo(product)" style="font-size: 25px;"></i>
+        <a [href]="product.link" target="_blank" class="icon-absolute ms-3"><i class="bi bi-link" style="font-size: 25px;"></i></a>
+      </div>
+      <div *ngIf="showBell" class="mt-5 d-flex justify-content-end">
+        <i *ngIf="!product?.notify" (click)="addProductToNotify(product)" class="bi bi-bell position-absolute bell"></i>
+        <i *ngIf="product?.notify" (click)="removeProductFromNotify(product)" class="bi-bell-fill position-absolute bell"></i>
+      </div>
+    </div>
+  </div>
+</div>
+

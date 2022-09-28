@@ -1,0 +1,14 @@
+.select-width {
+    width: 20%;
+}
+
+@media only screen and (max-width: 991px) {
+    .select-width {
+        width: 200px;
+        margin-bottom: 7px;
+    }
+
+    .themeBtn {
+        margin-bottom: 7px;
+    }
+  }

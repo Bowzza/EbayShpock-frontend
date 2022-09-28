@@ -1,0 +1,13 @@
+<section>
+  <div class="d-flex flex-column align-items-center gap-3">
+      <h1 mat-dialog-title>{{data.product.productName}}</h1>
+      <img [src]="data.product.img" width="250" height="250">
+      <div mat-dialog-content style="width: 75%; height: 100px; overflow-y: scroll;">{{data.product.description}}</div>
+      <div class="fw-bold price-text">{{data.product.price|currency:'EUR':true}}</div>
+  </div>
+
+  <div mat-dialog-actions class="d-flex justify-content-center">
+    <button mat-button mat-dialog-close>Close</button>
+    <a mat-button [href]="data.product.link" target="_blank">Link</a>
+  </div>
+</section>

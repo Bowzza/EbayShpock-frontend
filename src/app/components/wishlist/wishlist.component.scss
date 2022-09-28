@@ -1,0 +1,28 @@
+.darkMode {
+    color: #fff;
+}
+
+.spinner-border {
+    width: 60px;
+    height: 60px;
+}
+
+.grid-products {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    grid-gap: 30px;
+    align-items: stretch;
+}
+
+
+@media only screen and (max-width: 952px) {
+    .grid-products {
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
+    }
+}
+
+@media only screen and (max-width: 630px) {
+    .grid-products {
+        grid-template-columns: repeat(1, minmax(280px, 1fr));
+    }
+}

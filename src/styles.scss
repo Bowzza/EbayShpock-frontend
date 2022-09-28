@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+*,::before,::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dark-theme {
+  background-color: rgb(37, 37, 37);
+  color: #fff;
+}
+
+body {
+  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: rgba(39, 174, 96, 0.1);
+}
+
+
+.bg-success {
+  background-color: rgb(50, 193, 97)!important;
+}
+
+.text-success {
+  color: rgb(50, 193, 97) !important;
+}
+
+.dialogDarkmode {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.cdk-global-scrollblock {
+  position: static;
+  overflow-y: unset;
+}
+
+
+
+.btn-primary {
+  background-color: #26663b !important;
+  border: none !important;
+}
+
+.btn-primary:hover {
+  background-color: #32C161 !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

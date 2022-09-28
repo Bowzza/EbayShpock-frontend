@@ -1,0 +1,61 @@
+section {
+    min-height: 80vh;
+}
+
+.mt-20 {
+    // margin-top: 20px !important;
+}
+
+.card {
+    border: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.darkModeTitle {
+    color: #fff;
+}
+
+.darkCard {
+    // border: 2px solid #fff;
+    background-color: #262626;
+    color: #fff;
+}
+
+#firstImg {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: .5s;
+}
+
+
+#firstImg:hover > .card-text  {
+    font-size: 20px;
+}
+
+#secondImg {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: .8s;
+}
+
+#thirdImg {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 1.1s;
+}
+
+#title-mainImg {
+    opacity: 0;
+    animation: fadeIn 2.5s forwards;
+    // animation-delay: .5s;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

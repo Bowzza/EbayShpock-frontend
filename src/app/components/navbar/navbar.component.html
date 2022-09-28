@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg bg-success">
+    <div class="container">
+      <a class="navbar-brand text-light" routerLink="home">Ebay - Shpock Scrapper</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-light">
+          <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" routerLink="home" i18n>Startseite</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" routerLink="searchResults" i18n>Suchen</a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="isAuth" class="nav-link active text-light" aria-current="page" routerLink="wishlist" i18n>Meine Produkte</a>
+          </li>
+        
+        </ul>
+        <!-- <button *ngIf="!darkmode" class="btn btn-primary me-2 themeBtn" (click)="toggleDarkMode()" i18n>Hell</button>
+        <button *ngIf="darkmode" class="btn btn-primary me-2" (click)="toggleDarkMode()" i18n>Dunkel</button> -->
+        <div class="d-flex gap-2">
+          <label class="form-check-label" for="switchTheme" [class.darkMode]="darkmode">Darkmode:</label>
+          <div class="form-check form-switch">
+              <input (change)="toggleDarkMode()" class="form-check-input" type="checkbox" role="switch" id="switchTheme">
+          </div>
+        </div>
+        <select (change)="changeLanguage($event)" class="form-select select-width me-2" aria-label="Default select example">
+          <option selected i18n>Sprache auswählen</option>
+          <option value="de" [selected]="language === 'de-AT'" i18n>Deutsch</option>
+          <option value="en" [selected]="language === 'en-US'" i18n>Englisch</option>
+        </select>
+        <button *ngIf="isAuth" (click)="logout()" class="me-2 btn btn-light" data-bs-toggle="modal" data-bs-target="#loginModal" i18n>Abmelden</button>
+        <button *ngIf="!isAuth" class="me-2 btn btn-light" routerLink="login" i18n>Anmelden</button>
+        <button *ngIf="!isAuth" class="btn btn-light" routerLink="registration" i18n>Registrieren</button>
+      </div>
+    </div>
+  </nav>
+
+

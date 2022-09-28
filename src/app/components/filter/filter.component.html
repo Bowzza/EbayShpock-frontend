@@ -1,0 +1,21 @@
+<div [class.darkCard]="darkmode" class="position-fixed card d-flex flex-column justify-content-center align-items-center gap-3" style="width: 18rem; padding: 15px; left: 100px;">
+    <h3 i18n>Filter</h3>
+    <div class="form-check">
+      <input (change)="filterEbayProducts()" [checked]="filteringEbay" class="form-check-input" type="radio" name="filterEbay" id="filterEbay">
+      <label class="form-check-label" for="filterEbay" i18n>
+        Ebay Produkte
+      </label>
+    </div>
+    <div class="form-check">
+      <input (change)="filterShpockProducts()" [checked]="filteringShpock" class="form-check-input" type="radio" name="filterShpock" id="filterShpock">
+      <label class="form-check-label" for="filterShpock" i18n>
+        Shpock Produkte
+      </label>
+    </div>
+    <select (change)="sortProductsByPrice($event.target)" class="form-select select-width me-2" style="width: 75%;" aria-label="Default select example">
+      <option selected i18n>Sortieren nach Preis</option>
+      <option value="asc" i18n>Aufsteigend</option>
+      <option value="desc" i18n>Absteigend</option>
+    </select>
+    <button id="removeFilterBtn" (click)="removeProductsFilter()" class="btn btn-primary" i18n>Filter entfernen</button>
+</div>

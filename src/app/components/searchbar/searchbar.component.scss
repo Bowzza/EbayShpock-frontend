@@ -1,0 +1,10 @@
+a > span {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+
+a > span:hover {
+    cursor: pointer;
+    background-color: rgb(184, 184, 184);
+}

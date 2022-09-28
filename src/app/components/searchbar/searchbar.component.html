@@ -1,0 +1,7 @@
+<form [formGroup]="searchForm">
+    <div class="input-group">
+      <input (keyup.enter)="search()" formControlName="searchTerm" [class.is-invalid]="searchTermField.touched && searchTermField.invalid" type="text" class="form-control" i18n-placeholder placeholder="z.B. notebook..." aria-label="Username" aria-describedby="basic-addon1">
+      <a (click)="search()"><span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span></a>
+      <div *ngIf="searchTermField.touched && searchTermField.hasError('required')" class="d-block invalid-feedback" i18n>Bitte geben Sie einen Produktnamen ein.</div>
+    </div>
+</form>

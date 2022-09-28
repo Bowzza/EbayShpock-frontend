@@ -1,0 +1,25 @@
+<ng-progress class="sticky-top" color="#219fff" [thick]="true" [spinner]="false"></ng-progress>
+<!-- <section *ngIf="loadingProducts" class="mt-5 d-flex justify-content-center align-items-center">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+</section> -->
+<section class="container mt-5 d-flex flex-column align-items-center">
+    <h2 class="text-center" [class.darkMode]="darkmode" i18n>Meine Wunschliste</h2>
+    <div class="d-flex align-items-center gap-2">
+        <label class="form-check-label" for="flexSwitchCheckDefault" [class.darkMode]="darkmode">Notifications:</label>
+        <div class="form-check form-switch">
+            <input (change)="switchNotifyStatus()" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        </div>
+        <button class="btn btn-primary" (click)="testNotification()">Test Notification</button>
+    </div>
+
+    <span i18n [class.darkMode]="darkmode">Anzahl der Produkte: {{wishlist.length}}</span>
+    <div class="grid-products mt-4 mb-4">
+        <app-product 
+        @fadeIn *ngFor="let product of wishlist" [product]="product" [showBell]="true" 
+        (removingProductFromNotify)="removeProductFromNotify(product)" (addingProductToNotify)="addingProductToNotify(product)" 
+        (removingProduct)="removeProduct(product)">
+    </app-product>
+    </div>
+</section>

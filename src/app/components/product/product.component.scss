@@ -1,0 +1,62 @@
+.icon-absolute {
+    transition: .3s;
+}
+
+.icon-absolute:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.card {
+    transition: .3s;
+    border: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.card:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+}
+
+.crop {
+    overflow:hidden;
+    line-height: 30px;
+    height: 30px;
+}
+
+.link-section {
+    width: 100%;
+    // z-index: 5;
+}
+
+.darkCard {
+    background-color: #262626;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.bell {
+    font-size: 28px; 
+    bottom: 5px; 
+    right: 5px;
+    transition: .3s;
+}
+
+.bell:hover {
+    transform: scale(1.2);
+}
+
+.card-title {
+    font-weight: 400 !important;
+}
+
+.product-img {
+    max-height: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+    .card:hover {
+        transform: none;
+    }
+    
+}

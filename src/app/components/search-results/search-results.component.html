@@ -1,0 +1,100 @@
+<ng-progress class="sticky-top" color="#219fff" [thick]="true" [spinner]="false"></ng-progress>
+<section>
+  <div class="container box sticky-top" [class.darkCard]="darkmode" style="z-index: 5;">
+    <app-searchbar (searchProduct)="search($event)"></app-searchbar>
+  </div>
+  <div class="d-flex mt-5" id="search-container">
+    <div class="d-flex justify-content-center" id="filter" style="width: 25%;">
+      <app-filter 
+        *ngIf="searchResults.length > 0" [darkmode]="darkmode" 
+        (filterEbay)="filterEbay()" (filterShpock)="filterShpock()" 
+        (sortByPrice)="sortByPrice($event)" (removeFilter)="removeFilter()">
+      </app-filter>
+    </div>
+    <!-- d-flex justify-content-center align-items-center -->
+    <div>
+      <!-- <div class="d-flex flex-column justify-content-center align-items-center" *ngIf="searchResults.length > 0">
+        <h2 class="text-center" [class.darkModeTitle]="darkmode" i18n>Suchergebnisse für {{searchedTerm}}:</h2>
+        <span [class.darkModeTitle]="darkmode" i18n>Anzahl der Suchergebnisse: {{searchResults.length}}</span>
+        <button class="btn btn-primary mt-1" id="filterBtnResponisve" data-bs-toggle="modal" data-bs-target="#filterModal">Filter einstellen</button>
+        <app-product class="mb-5" 
+          @fadeIn *ngFor="let product of searchResults" [product]="product" 
+          (addingProduct)="addProduct(product)" (removingProduct)="removeProduct(product)">
+        </app-product>
+      </div> -->
+      <div class="d-flex flex-column justify-content-center align-items-center" *ngIf="searchResults.length > 0">
+        <h2 class="text-center" [class.darkModeTitle]="darkmode" i18n>Suchergebnisse für {{searchedTerm}}:</h2>
+        <span [class.darkModeTitle]="darkmode" i18n>Anzahl der Suchergebnisse: {{searchResults.length}}</span>
+        <button class="btn btn-primary mt-1" id="filterBtnResponisve" data-bs-toggle="modal" data-bs-target="#filterModal">Filter einstellen</button>
+        <div class="grid-products mt-4">
+          <app-product  
+            @fadeIn *ngFor="let product of searchResults" [product]="product" 
+            (addingProduct)="addProduct(product)" (removingProduct)="removeProduct(product)">
+          </app-product>
+        </div>
+        <button [disabled]="loadingProducts" class="btn btn-primary d-flex align-items-center gap-2 mt-4 mb-3" (click)="loadMoreProducts()" i18n>
+          Mehr Produkte laden
+          <div *ngIf="loadingProducts" class="spinner-border text-light" role="status" style="width: 1.5rem; height: 1.5rem;"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <section *ngIf="searchResults.length == 0" class="container d-flex align-items-center justify-content-center">
+    <img src="assets/nothingSearched.webp" class="no-search-pic" alt="nothing searched">
+  </section>
+  
+  <button class="btn btn-primary position-fixed scroll-up" (click)="scrollToTop()"><i class="bi bi-arrow-up"></i></button>
+</section>
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content d-flex justify-content-center">
+    <div class="modal-header">
+      <h5 class="modal-title " id="loginModalLabel" i18n>Bitte melden Sie sich an!</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="modal fade" id="filterModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="filterModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" id="filterModalContent">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Filter</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="searchResults.length > 0" class="d-flex flex-column justify-content-center align-items-center gap-3">
+          <h3 i18n>Filter</h3>
+          <div class="form-check">
+            <input (change)="filterEbay()" [checked]="filteringEbay" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1" i18n>
+              Ebay Produkte
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="filterShpock()" [checked]="filteringShpock" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1" i18n>
+              Shpock Produkte
+            </label>
+          </div>
+          <select (change)="sortByPrice($event.target)" class="form-select select-width me-2" style="width: 75%;" aria-label="Default select example">
+            <option selected i18n>Sortieren nach Preis</option>
+            <option value="asc" i18n>Aufsteigend</option>
+            <option value="desc" i18n>Absteigend</option>
+          </select>
+          <button (click)="removeFilter()" class="btn btn-primary" i18n>Filter entfernen</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
