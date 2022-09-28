@@ -20,8 +20,9 @@ Darkmode</br>
 
 ## Cloning and installing
 1. `git clone https://github.com/Bowzza/EbayShpock-frontend.git`
-2. `npm i`
-3. `ng serve`
+2. `cd EbayShpock-frontend`
+3. `npm i`
+4. `ng serve`
 
 ## Important Information!
 Push notification is only working on the online website: https://ebayshpock-scraper.herokuapp.com/de-AT/home
