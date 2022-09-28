@@ -3,40 +3,28 @@
   <div class="container box sticky-top" [class.darkCard]="darkmode" style="z-index: 5;">
     <app-searchbar (searchProduct)="search($event)"></app-searchbar>
   </div>
-  <div class="d-flex mt-5" id="search-container">
-    <div class="d-flex justify-content-center" id="filter" style="width: 25%;">
+  <div class="mt-5 d-flex justify-content-center" id="search-container" style="width: 100%;">
+    <div class="position-fixed d-flex justify-content-center align-items-center" id="filter" style="width: 25%; height: 60vh; left: 0px;">
       <app-filter 
         *ngIf="searchResults.length > 0" [darkmode]="darkmode" 
         (filterEbay)="filterEbay()" (filterShpock)="filterShpock()" 
         (sortByPrice)="sortByPrice($event)" (removeFilter)="removeFilter()">
       </app-filter>
     </div>
-    <!-- d-flex justify-content-center align-items-center -->
-    <div>
-      <!-- <div class="d-flex flex-column justify-content-center align-items-center" *ngIf="searchResults.length > 0">
-        <h2 class="text-center" [class.darkModeTitle]="darkmode" i18n>Suchergebnisse für {{searchedTerm}}:</h2>
-        <span [class.darkModeTitle]="darkmode" i18n>Anzahl der Suchergebnisse: {{searchResults.length}}</span>
-        <button class="btn btn-primary mt-1" id="filterBtnResponisve" data-bs-toggle="modal" data-bs-target="#filterModal">Filter einstellen</button>
-        <app-product class="mb-5" 
+    <div class="d-flex flex-column justify-content-center align-items-center" *ngIf="searchResults.length > 0">
+      <h2 class="text-center" [class.darkModeTitle]="darkmode" i18n>Suchergebnisse für {{searchedTerm}}:</h2>
+      <span [class.darkModeTitle]="darkmode" i18n>Anzahl der Suchergebnisse: {{searchResults.length}}</span>
+      <button class="btn btn-primary mt-1" id="filterBtnResponisve" data-bs-toggle="modal" data-bs-target="#filterModal">Filter einstellen</button>
+      <div class="grid-products mt-4">
+        <app-product  
           @fadeIn *ngFor="let product of searchResults" [product]="product" 
           (addingProduct)="addProduct(product)" (removingProduct)="removeProduct(product)">
         </app-product>
-      </div> -->
-      <div class="d-flex flex-column justify-content-center align-items-center" *ngIf="searchResults.length > 0">
-        <h2 class="text-center" [class.darkModeTitle]="darkmode" i18n>Suchergebnisse für {{searchedTerm}}:</h2>
-        <span [class.darkModeTitle]="darkmode" i18n>Anzahl der Suchergebnisse: {{searchResults.length}}</span>
-        <button class="btn btn-primary mt-1" id="filterBtnResponisve" data-bs-toggle="modal" data-bs-target="#filterModal">Filter einstellen</button>
-        <div class="grid-products mt-4">
-          <app-product  
-            @fadeIn *ngFor="let product of searchResults" [product]="product" 
-            (addingProduct)="addProduct(product)" (removingProduct)="removeProduct(product)">
-          </app-product>
-        </div>
-        <button [disabled]="loadingProducts" class="btn btn-primary d-flex align-items-center gap-2 mt-4 mb-3" (click)="loadMoreProducts()" i18n>
-          Mehr Produkte laden
-          <div *ngIf="loadingProducts" class="spinner-border text-light" role="status" style="width: 1.5rem; height: 1.5rem;"></div>
-        </button>
       </div>
+      <button [disabled]="loadingProducts" class="btn btn-primary d-flex align-items-center gap-2 mt-4 mb-3" (click)="loadMoreProducts()" i18n>
+        Mehr Produkte laden
+        <div *ngIf="loadingProducts" class="spinner-border text-light" role="status" style="width: 1.5rem; height: 1.5rem;"></div>
+      </button>
     </div>
   </div>
 

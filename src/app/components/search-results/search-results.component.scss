@@ -65,14 +65,11 @@ a span:hover {
     display: none;
 }
 
-@media only screen and (max-width: 1550px) {
+@media only screen and (max-width: 1655px) {
     #filter {
         display: none !important;
     }
 
-    #search-container {
-        justify-content: center;
-    }
 
     #filterBtnResponisve {
         display: block;
