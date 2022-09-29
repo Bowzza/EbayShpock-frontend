@@ -19,8 +19,8 @@ import { DarkService } from 'src/app/services/dark.service';
         animate('250ms', style({ opacity: 1 }))
       ]),
       transition(':leave', [
-        style({ opacity: 1, transform: 'translate(0, 0)' }),
-        animate('250ms', style({ opacity: 0, transform: 'translate(-300px, 0)' }))
+        style({ opacity: 1}),
+        animate('250ms', style({ opacity: 0, transform: 'scale(0.8)' }))
       ])
     ])
   ]
