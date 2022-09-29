@@ -14,7 +14,7 @@
         <button class="btn btn-primary" (click)="testNotification()">Test Notification</button>
     </div>
 
-    <span i18n [class.darkMode]="darkmode">Anzahl der Produkte: {{wishlist.length}}</span>
+    <span class="mt-2" i18n [class.darkMode]="darkmode">Anzahl der Produkte: {{wishlist.length}}</span>
     <div class="grid-products mt-4 mb-4">
         <app-product 
         @fadeIn *ngFor="let product of wishlist" [product]="product" [showBell]="true" 

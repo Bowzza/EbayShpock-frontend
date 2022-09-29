@@ -125,7 +125,11 @@ export class WishlistComponent implements OnInit, OnDestroy {
   }
 
   testNotification() {
-    this.notifyService.testNotification().subscribe();
+    this.notifyService.testNotification().subscribe(res => {
+      alert(res.message);
+    }, err => {
+      alert(err.error.message);
+    });
   }
 
 }
