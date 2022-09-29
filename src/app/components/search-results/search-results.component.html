@@ -14,7 +14,7 @@
     <div class="d-flex flex-column justify-content-center align-items-center" *ngIf="searchResults.length > 0">
       <h2 class="text-center" [class.darkModeTitle]="darkmode" i18n>Suchergebnisse für {{searchedTerm}}:</h2>
       <span [class.darkModeTitle]="darkmode" i18n>Anzahl der Suchergebnisse: {{searchResults.length}}</span>
-      <button class="btn btn-primary mt-1" id="filterBtnResponisve" data-bs-toggle="modal" data-bs-target="#filterModal">Filter einstellen</button>
+      <button class="btn btn-primary mt-1" id="filterBtnResponisve" data-bs-toggle="modal" data-bs-target="#filterModal" i18n>Filter einstellen</button>
       <div class="grid-products mt-4">
         <app-product  
           @fadeIn *ngFor="let product of searchResults" [product]="product" 
