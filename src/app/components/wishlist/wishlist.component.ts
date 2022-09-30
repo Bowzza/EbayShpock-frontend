@@ -91,6 +91,7 @@ export class WishlistComponent implements OnInit, OnDestroy {
     if (!this.swPush.isEnabled) {
       return;
     }
+    if(Notification.permission === 'granted') return;
     this.swPush.requestSubscription({
       serverPublicKey: this.publicKey
     })
