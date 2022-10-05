@@ -27,7 +27,7 @@
       </div>
     </div>
 </div> -->
-<div class="card position-relative" [class.darkCard]="darkmode" style="width: 18rem;">
+<div class="card" (click)="toggleDescription()" [class.darkCard]="darkmode" style="width: 18rem;">
   <img [src]="product.img" class="card-img-top" alt="no img" height="200" width="200">
   <div class="card-body">
     <div class="d-flex flex-column align-items-center">
@@ -52,4 +52,3 @@
     </div>
   </div>
 </div>
-

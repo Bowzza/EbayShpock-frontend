@@ -1,4 +1,4 @@
-import { trigger, transition, style, animate } from '@angular/animations';
+import { trigger, transition, style, animate, query, stagger, keyframes } from '@angular/animations';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -23,6 +23,15 @@ import { SearchService } from 'src/app/services/search.service';
         style({ opacity: 0 }),
         animate('500ms', style({ opacity: 1 }))
       ])
+    ]),
+    trigger('stagger', [
+      transition('* => *', [ 
+        query(':enter', [
+            style({ opacity: 0 }),
+            stagger(80, [animate('0.5s', style({ opacity: 1 }))])
+          ], { optional: true }
+        )
+      ])
     ])
   ]
 })
@@ -39,8 +48,9 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   desc: boolean;
   darkmode: boolean;
   dialogRef: any;
+  showSection: boolean = false;
   private darkModeSub: Subscription;
-
+  flyAnimation: boolean;
 
   constructor(private searchService: SearchService, private productsService: ProductsService, private router: Router, private route: ActivatedRoute,
     private darkService: DarkService, private filterService: FilterService) {
@@ -64,16 +74,19 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     } else {
 
     }
-
+    this.showSection = false;
     this.searchedTerm = this.route.snapshot.queryParamMap.get('search_query');
     if(this.searchedTerm == null || this.searchedTerm === '') return;
+
     this.searchService.search(this.searchedTerm).subscribe(res => {
+      
       this.searchResults = res;
       // this.removeDoubleProducts(this.searchResults);
       this.beforeFilterResults = res;
       // this.searchResults.shift();
       this.checkIfInList();
       this.sortByPriceAsc(this.searchResults);
+      this.showSection = true;
     });
 
 
@@ -89,6 +102,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
         this.wishlist = res;
       });
     }
+    this.showSection = false;
     this.searchedTerm = this.route.snapshot.queryParamMap.get('search_query');
     this.router.navigate(['searchResults'], { queryParams: { search_query: searchTerm } });
     this.searchService.search(searchTerm).subscribe(res => {
@@ -99,6 +113,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
       // this.searchResults.shift();
       this.checkIfInList();
       this.sortByPriceAsc(this.searchResults);
+      this.showSection = true;
     });
   }
 
@@ -182,10 +197,13 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   removeFilter() {
     this.filteringEbay = false;
     this.filteringShpock = false;
+    this.asc = true;
+    this.desc = false;
     this.filterService.changeEbayFilter(this.filteringEbay);
     this.filterService.changeShpockFilter(this.filteringShpock);
     this.searchResults = this.beforeFilterResults;
-    if(this.desc) this.sortByPriceDesc(this.searchResults);
+    this.sortByPriceAsc(this.searchResults);
+    // if(this.desc) this.sortByPriceDesc(this.searchResults);
   }
 
   loadMoreProducts() {
@@ -244,3 +262,5 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
 
 }
+
+

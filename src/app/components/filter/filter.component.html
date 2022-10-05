@@ -13,9 +13,8 @@
       </label>
     </div>
     <select (change)="sortProductsByPrice($event.target)" class="form-select select-width me-2" style="width: 75%;" aria-label="Default select example">
-      <option selected i18n>Sortieren nach Preis</option>
-      <option value="asc" i18n>Aufsteigend</option>
-      <option value="desc" i18n>Absteigend</option>
+      <option value="asc" [selected]="asc" i18n>Aufsteigend</option>
+      <option value="desc" [selected]="desc" i18n>Absteigend</option>
     </select>
     <button id="removeFilterBtn" (click)="removeProductsFilter()" class="btn btn-primary" i18n>Filter entfernen</button>
 </div>

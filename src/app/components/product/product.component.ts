@@ -5,6 +5,9 @@ import { AuthService } from 'src/app/services/auth.service';
 import { DarkService } from 'src/app/services/dark.service';
 import {MatDialog} from '@angular/material/dialog';
 import { ProductInfoDialogComponent } from '../product-info-dialog/product-info-dialog.component';
+import { animate, keyframes, style, transition, trigger } from '@angular/animations';
+
+
 
 @Component({
   selector: 'app-product',
@@ -24,10 +27,13 @@ export class ProductComponent implements OnInit, OnDestroy {
   darkmode: boolean;
   private darkModeSub: Subscription;
   dialogRef: any;
+  showDescriptionDialog: boolean;
+
 
   constructor(private authService: AuthService, private darkService: DarkService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+
     this.isAuth = this.authService.getIsAuth();
     this.authListenerSubs = this.authService.getAuthStatusListener().subscribe(isAuth => {
       this.isAuth = isAuth;
@@ -63,5 +69,9 @@ export class ProductComponent implements OnInit, OnDestroy {
     this.dialogRef = this.dialog.open(ProductInfoDialogComponent, {
       data: {product, darkmode: this.darkmode}
     });
+  }
+
+  toggleDescription() {
+    this.showDescriptionDialog = !this.showDescriptionDialog;
   }
 }

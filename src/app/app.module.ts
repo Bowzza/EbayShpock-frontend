@@ -26,6 +26,7 @@ import { ProductInfoDialogComponent } from './components/product-info-dialog/pro
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'registration', component: RegistrationComponent },

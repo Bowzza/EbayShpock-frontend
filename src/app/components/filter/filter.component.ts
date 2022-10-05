@@ -10,6 +10,8 @@ import { FilterService } from 'src/app/services/filter.service';
 export class FilterComponent implements OnInit, OnDestroy {
 
   @Input() darkmode: boolean;
+  @Input() asc: boolean;
+  @Input() desc: boolean;
   @Output() filterEbay: EventEmitter<any> = new EventEmitter();
   @Output() filterShpock: EventEmitter<any> = new EventEmitter();
   @Output() sortByPrice: EventEmitter<any> = new EventEmitter();
