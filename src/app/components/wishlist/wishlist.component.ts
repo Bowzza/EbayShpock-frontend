@@ -63,9 +63,6 @@ export class WishlistComponent implements OnInit, OnDestroy {
       this.darkmode = res;
     });
     if(localStorage.getItem('darkmode') === 'true') this.darkmode = true;
-
-    this.pushSubscription();
-
   }
 
   ngOnDestroy(): void {
@@ -74,11 +71,7 @@ export class WishlistComponent implements OnInit, OnDestroy {
 
   removeProduct(product: Product) {
     this.wishlist = this.wishlist.filter(el => el._id !== product._id);
-    this.productsService.removeProduct(product._id).subscribe(res => {
-      // console.log(res);
-    }, err => {
-      // console.log(err);
-    });
+    this.productsService.removeProduct(product._id).subscribe();
   }
 
   sortByPrice(arr: Array<any>) {
@@ -91,7 +84,6 @@ export class WishlistComponent implements OnInit, OnDestroy {
     if (!this.swPush.isEnabled) {
       return;
     }
-    if(Notification.permission === 'granted') return;
     this.swPush.requestSubscription({
       serverPublicKey: this.publicKey
     })
@@ -104,25 +96,20 @@ export class WishlistComponent implements OnInit, OnDestroy {
 
   addingProductToNotify(product: Product) {
     product.notify = true;
-    this.notifyService.addProductToNotifyList(product).subscribe(res => {
-      console.log(res);
-    }, err => {
-      console.log(err);
-    });
+    this.notifyService.addProductToNotifyList(product).subscribe();
   }
 
   removeProductFromNotify(product: Product) {
     product.notify = false;
-    this.notifyService.removeProductFromNotifyList(product._id).subscribe(res => {
-      console.log(res);
-    }, err => {
-      console.log(err);
-    });
+    this.notifyService.removeProductFromNotifyList(product._id).subscribe();
   }
 
   switchNotifyStatus() {
     this.notifyStatus = !this.notifyStatus;
-    this.notifyService.postNotifyStatus().subscribe(res => console.log(res));
+    if(this.notifyStatus) {
+      this.pushSubscription();
+    }
+    this.notifyService.postNotifyStatus().subscribe();
   }
 
   testNotification() {
