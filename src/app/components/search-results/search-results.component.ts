@@ -59,6 +59,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if(localStorage.getItem('token')) {
+      console.log
       this.productsService.getProducts().subscribe(res => {
         this.wishlist = res;
       });

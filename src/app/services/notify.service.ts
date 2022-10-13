@@ -5,8 +5,8 @@ import { Product } from '../model/product';
 import { environment } from 'src/environments/environment';
 
 
-// const API = 'http://localhost:3000/api/notify';
-const API = 'https://ebayshpockscraper-backend.herokuapp.com/api/notify';
+const API = 'http://localhost:3000/api/notify';
+// const API = 'https://ebayshpockscraper-backend.herokuapp.com/api/notify';
 
 
 @Injectable({
@@ -41,6 +41,6 @@ export class NotifyService {
   }
 
   testNotification(): Observable<any> {
-    return this.http.get(`${environment.api}api/notify/testNotify`);
+    return this.http.get(`${environment.api}/testNotify`);
   }
 }
