@@ -41,6 +41,6 @@ export class NotifyService {
   }
 
   testNotification(): Observable<any> {
-    return this.http.get(`${environment.api}/testNotify`);
+    return this.http.get(`${API}/testNotify`);
   }
 }
