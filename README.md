@@ -1,7 +1,7 @@
 # Ebay/Shpock Scraper - Frontend
 For this you also will need the server from this repository: https://github.com/Bowzza/EbayShpock-backend
 
-Online Website: https://ebayshpock-scraper.herokuapp.com/de-AT/home
+Online Website: https://ebayshpockscraper.herokuapp.com/de-AT/home
 
 ## Functions:
 Registration</br>
