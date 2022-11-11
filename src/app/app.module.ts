@@ -25,6 +25,7 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { ProductInfoDialogComponent } from './components/product-info-dialog/product-info-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { CartComponent } from './components/cart/cart.component';
 
 
 const routes: Routes = [
@@ -51,7 +52,8 @@ const routes: Routes = [
     ProductComponent,
     FilterComponent,
     SearchbarComponent,
-    ProductInfoDialogComponent
+    ProductInfoDialogComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

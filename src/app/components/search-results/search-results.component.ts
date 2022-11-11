@@ -1,6 +1,6 @@
 import { trigger, transition, style, animate, query, stagger, keyframes } from '@angular/animations';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { indicate, IndicatorBehaviorSubject } from 'ngx-ready-set-go';
@@ -51,6 +51,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   showSection: boolean = false;
   private darkModeSub: Subscription;
   flyAnimation: boolean;
+  alreadySearched: boolean;
 
   constructor(private searchService: SearchService, private productsService: ProductsService, private router: Router, private route: ActivatedRoute,
     private darkService: DarkService, private filterService: FilterService) {
@@ -78,7 +79,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     this.showSection = false;
     this.searchedTerm = this.route.snapshot.queryParamMap.get('search_query');
     if(this.searchedTerm == null || this.searchedTerm === '') return;
-
+    this.alreadySearched = true;
     this.searchService.search(this.searchedTerm).subscribe(res => {
       
       this.searchResults = res;
@@ -98,6 +99,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
 
   search(searchTerm: string) {
+    this.alreadySearched = true;
     if(localStorage.getItem('token')) {
       this.productsService.getProducts().subscribe(res => {
         this.wishlist = res;
@@ -130,6 +132,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
   addProduct(product: Product) {
     product.inWishlist = true;
+    this.productsService.addProductFrontend(1);
     this.productsService.addProduct(product).subscribe(_res => {
       // console.log(res);
     }, _err => {
@@ -138,12 +141,13 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
 
   removeProduct(product: Product) {
-    this.wishlist = this.wishlist.filter(el => el._id !== product._id);
+    this.wishlist = this.wishlist.filter(el => el.articleNumber !== product.articleNumber);
     product.inWishlist = false;
+    this.productsService.addProductFrontend(-1);
     this.productsService.removeProduct(product.articleNumber).subscribe(_res => {
       // console.log(res);
     }, _err => {
-      // console.log(err);
+      console.log(_err);
     });
   }
 
@@ -260,6 +264,15 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     filterModal.style.backgroundColor = '#fff';
     filterModal.style.border = 'none';
     filterModal.style.color = '#000';
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll($event: any) {
+    const numb = window.scrollY;
+    const scrollUpBtn = document.getElementById('scroll-up');
+    const showCart = document.getElementById('showCart');
+    numb >= 300 ? scrollUpBtn.style.display = 'block' : scrollUpBtn.style.display = 'none';
+    numb >= 60 ? showCart.style.display = 'flex' : showCart.style.display = 'none';
   }
 
 }

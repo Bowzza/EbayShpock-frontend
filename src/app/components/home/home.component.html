@@ -1,9 +1,10 @@
 <section class="d-flex flex-column justify-content-around">
-    <div id="title-mainImg" class="container mt-5 d-flex justify-content-around align-items-center flex-wrap">
+    <div id="title-mainImg" class="d-flex justify-content-center flex-column align-items-center flex-wrap gap-5">
         <h1 [class.darkModeTitle]="darkmode">Ebay - Shpock <span class="text-success">Scraper</span></h1>
-        <img src="assets/Electronic.png" class="home-main-pic" alt="products" width="500">
+        <!-- <img src="assets/Electronic.png" class="home-main-pic" alt="products" width="500"> -->
+        <input [(ngModel)]="searchTerm" (keyup.enter)="search()" type="search" class="home-searchbar" placeholder="Produktname" name="home_searchbar">
     </div>
-    <div class="container mt-20 d-flex justify-content-around align-items-center mb-5 flex-wrap gap-3">
+    <div class="container mt-80 d-flex justify-content-around align-items-center mb-5 flex-wrap">
         <div [class.darkCard]="darkmode" id="firstImg" class="card d-flex align-items-center" style="width: 18rem;">
             <img src="assets/fast.png" class="round-img" width="100" alt="...">
             <div class="card-body">

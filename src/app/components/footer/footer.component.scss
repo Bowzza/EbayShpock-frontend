@@ -1,7 +1,10 @@
-// section {
-//    position: fixed;
-//    left: 0;
-//    bottom: 0;
-//    width: 100%;
-//    color: white;
-// }
+section {
+   position: absolute;
+   bottom: 0;
+   height: 150px;
+   width: 100%;
+   color: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

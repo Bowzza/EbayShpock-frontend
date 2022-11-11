@@ -38,6 +38,7 @@ export class WishlistComponent implements OnInit, OnDestroy {
     private notifyService: NotifyService, private darkService: DarkService, private swPush: SwPush) { }
 
   ngOnInit(): void {
+    window.scroll(0, 0);
     this.loadingProducts = true;
     this.notifyService.getNotifyStatus().subscribe(res => {
       this.notifyStatus = res;
@@ -70,8 +71,9 @@ export class WishlistComponent implements OnInit, OnDestroy {
   }
 
   removeProduct(product: Product) {
+    this.productsService.addProductFrontend(-1);
     this.wishlist = this.wishlist.filter(el => el._id !== product._id);
-    this.productsService.removeProduct(product._id).subscribe();
+    this.productsService.removeProduct(product.articleNumber).subscribe();
   }
 
   sortByPrice(arr: Array<any>) {

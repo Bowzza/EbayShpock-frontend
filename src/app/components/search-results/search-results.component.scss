@@ -32,8 +32,28 @@ a span:hover {
 }
 
 .scroll-up {
+    display: none;
     bottom: 12px;
     right: 12px;
+    z-index: 10;
+}
+
+#showCart {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #32C161;
+    position: fixed;
+    right: 100px;
+    top: 15px;
+}
+
+#showCart:hover {
+    cursor: pointer;
 }
 
 .darkCard {
@@ -63,6 +83,12 @@ a span:hover {
 
 #filterBtnResponisve {
     display: none;
+}
+
+@media only screen and (max-width: 1700px) {
+    #showCart {
+        display: none !important;
+    }
 }
 
 @media only screen and (max-width: 1655px) {

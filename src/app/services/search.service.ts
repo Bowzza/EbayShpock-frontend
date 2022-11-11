@@ -5,8 +5,8 @@ import { Product } from '../model/product';
 import { environment } from '../../environments/environment';
 
 
-// const SEARCH_API = 'http://localhost:3000/api/search';
-const SEARCH_API = 'https://ebayshpockscraper-backend.herokuapp.com/api/search';
+const SEARCH_API = 'http://localhost:3000/api/search';
+// const SEARCH_API = 'https://ebayshpockscraper-backend.herokuapp.com/api/search';
 
 
 @Injectable({

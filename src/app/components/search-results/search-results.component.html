@@ -32,7 +32,10 @@
     <img src="assets/nothingSearched.webp" class="no-search-pic" alt="nothing searched">
   </section>
   
-  <button class="btn btn-primary position-fixed scroll-up" (click)="scrollToTop()"><i class="bi bi-arrow-up"></i></button>
+  <button class="btn btn-primary position-fixed scroll-up" id="scroll-up" (click)="scrollToTop()"><i class="bi bi-arrow-up"></i></button>
+  <div id="showCart">
+    <app-cart [routerLink]="['/wishlist']"></app-cart>
+  </div>
 </section>
 
 

@@ -12,9 +12,7 @@
           <li class="nav-item" id="navSearchItem">
             <a class="nav-link active text-light" aria-current="page" routerLink="searchResults" i18n>Suchen</a>
           </li>
-          <li class="nav-item">
-            <a *ngIf="isAuth" class="nav-link active text-light" aria-current="page" routerLink="wishlist" i18n>Meine Produkte</a>
-          </li>
+          <app-cart *ngIf="isAuth" [routerLink]="['/wishlist']" class="me-4 ms-2"></app-cart>
         
         </ul>
         <!-- <button *ngIf="!darkmode" class="btn btn-primary me-2 themeBtn" (click)="toggleDarkMode()" i18n>Hell</button>
@@ -25,6 +23,8 @@
               <input (change)="toggleDarkMode()" class="form-check-input" type="checkbox" role="switch" id="switchTheme">
           </div>
         </div>
+
+
         <select (change)="changeLanguage($event)" class="form-select select-width me-2" aria-label="Default select example">
           <option selected i18n>Sprache auswählen</option>
           <option value="de" [selected]="language === 'de-AT'" i18n>Deutsch</option>

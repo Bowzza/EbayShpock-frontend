@@ -1,16 +1,32 @@
+import { trigger, transition, style, animate, keyframes } from '@angular/animations';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { DarkService } from 'src/app/services/dark.service';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
+  // animations: [
+  //   trigger(
+  //     'scaleAnimation', [
+  //       transition('void', [
+  //         animate('.3s', keyframes([ 
+  //           style({transform: 'scale(1.0)'}), 
+  //           style({transform: 'scale(1.3)'}), 
+  //           style({transform: 'scale(1.0)'})
+  //         ])),
+  //       ])
+  //     ]
+  //   )]
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   private authListenerSubs: Subscription;
+  private darkListenerSubs: Subscription;
+
   isAuth: boolean = false;
   darkmode: boolean;
   language: string;
@@ -23,9 +39,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.isAuth = isAuth;
     });
 
-    this.darkService.getDarkModeListener().subscribe(dark => {
+    this.darkListenerSubs = this.darkService.getDarkModeListener().subscribe(dark => {
       this.darkmode = dark;
     });
+
 
     if(localStorage.getItem('darkmode') === 'true') this.darkmode = true;
     if(this.darkmode) document.getElementById('switchTheme')?.setAttribute('checked', 'false');
@@ -36,6 +53,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.authListenerSubs.unsubscribe();
+    this.darkListenerSubs.unsubscribe();
   }
 
   logout(): void {
