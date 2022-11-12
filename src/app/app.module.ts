@@ -26,6 +26,7 @@ import { ProductInfoDialogComponent } from './components/product-info-dialog/pro
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { CartComponent } from './components/cart/cart.component';
+import { AccountinfoComponent } from './components/accountinfo/accountinfo.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'searchResults', component: SearchResultsComponent },
   { path: 'wishlist', component: WishlistComponent, canActivate: [AuthGuard] },
+  { path: 'accountinfo', component: AccountinfoComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
   
@@ -53,7 +55,8 @@ const routes: Routes = [
     FilterComponent,
     SearchbarComponent,
     ProductInfoDialogComponent,
-    CartComponent
+    CartComponent,
+    AccountinfoComponent
   ],
   imports: [
     BrowserModule,

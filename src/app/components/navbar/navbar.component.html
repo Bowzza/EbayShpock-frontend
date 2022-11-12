@@ -12,6 +12,9 @@
           <li class="nav-item" id="navSearchItem">
             <a class="nav-link active text-light" aria-current="page" routerLink="searchResults" i18n>Suchen</a>
           </li>
+          <li *ngIf="isAuth" class="nav-item" id="navSearchItem">
+            <a class="nav-link active text-light" aria-current="page" routerLink="accountinfo" i18n>Accountinfo</a>
+          </li>
           <app-cart *ngIf="isAuth" [routerLink]="['/wishlist']" class="me-4 ms-2"></app-cart>
         
         </ul>

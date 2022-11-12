@@ -1,0 +1,71 @@
+<section class="container d-flex flex-column justify-content-center align-items-center mt-5 gap-5">
+    <i class="bi bi-person-circle"></i>
+    <h3>{{displayEmail}}</h3>
+    <div class="d-flex flex-column gap-4">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeEmail" i18n>Email Adresse ändern</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePassword" i18n>Passwort ändern</button>
+    </div>
+</section>
+
+
+<div class="modal fade" id="changeEmail" aria-hidden="true" aria-labelledby="changeEmail" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel" i18n>Email Adresse ändern</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="changeEmailForm" (ngSubmit)="changeEmailSubmit()">
+                <div class="mb-3">
+                  <label for="id_email" class="form-label" i18n>Email Adresse</label>
+                  <input formControlName="email" [class.is-invalid]="email.touched && email.invalid || errorEmailMessage" type="email"
+                    class="form-control">
+                  <div *ngIf="email.touched && email.hasError('required')" class="d-block invalid-feedback" i18n>Bitte geben Sie eine Email an.</div>
+                  <div *ngIf="email.touched && email.hasError('email')" class="d-block invalid-feedback" i18n>Email
+                    Adresse ist nicht gültig.</div>
+                </div>
+                <h5 class="text-center text-danger" *ngIf="errorEmailMessage">{{errorEmailMessage}}</h5>
+                <h5 class="text-center text-success" *ngIf="successEmailMessage">{{successEmailMessage}}</h5>
+                <button [disabled]="changeEmailForm.invalid" type="submit" class=" mt-3 btn btn-primary w-100 d-flex align-items-center gap-2 justify-content-center" i18n>Email Adresse ändern<div *ngIf="loadingForm" class="spinner-border text-light" role="status" style="width: 1.5rem; height: 1.5rem;">
+                </div></button>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="changePassword" aria-hidden="true" aria-labelledby="changePassword" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel" i18n>Passwort ändern</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="changePasswordForm" (ngSubmit)="changePasswordSubmit()">
+                <div class="mb-3">
+                  <label for="id_password" class="form-label" i18n>Passwort</label>
+                  <input formControlName="password" [class.is-invalid]="password.touched && password.invalid || passwordsNotSame || errorPasswordMessage" type="password"
+                    class="form-control">
+                  <div *ngIf="password.touched && password.hasError('required')" class="d-block invalid-feedback" i18n>Bitte geben Sie eine Passwort an.</div>
+                  <div *ngIf="password.touched && password.hasError('minlength')" class="d-block invalid-feedback" i18n>Passwort muss mindestens 8 Zeichen lang sein.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="id_passwordConfirmed" class="form-label" i18n>Passwort bestätigen</label>
+                    <input formControlName="passwordConfirmed" [class.is-invalid]="passwordConfirmed.touched && passwordConfirmed.invalid || passwordsNotSame || errorPasswordMessage" type="password"
+                      class="form-control">
+                    <div *ngIf="passwordConfirmed.touched && passwordConfirmed.hasError('required')" class="d-block invalid-feedback" i18n>Bitte geben Sie eine Passwort an.</div>
+                    <div *ngIf="passwordConfirmed.touched && passwordConfirmed.hasError('minlength')" class="d-block invalid-feedback" i18n>Passwort muss mindestens 8 Zeichen lang sein.</div>
+                </div>
+                <h5 class="text-center text-danger" *ngIf="errorPasswordMessage">{{errorPasswordMessage}}</h5>
+                <h5 class="text-center text-success" *ngIf="successPasswordMessage">{{successPasswordMessage}}</h5>
+                <h5 class="text-center text-danger" *ngIf="passwordsNotSame" i18n>Die Passwörter müssen übereinstimmen.</h5>
+                <button [disabled]="changePasswordForm.invalid" type="submit" class=" mt-3 btn btn-primary w-100 d-flex align-items-center gap-2 justify-content-center" i18n>Passwort ändern<div *ngIf="loadingForm" class="spinner-border text-light" role="status" style="width: 1.5rem; height: 1.5rem;">
+                </div></button>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
