@@ -19,8 +19,10 @@ export class AppComponent implements OnInit{
     }
 
     this.darkService.getDarkModeListener().subscribe(dark => {
-      if(dark) document.body.style.background = '#000';
-      if(!dark) document.body.style.background = 'rgba(39, 174, 96, 0.1)';
+      // if(dark) document.body.style.background = '#000';
+      // if(!dark) document.body.style.background = 'rgba(39, 174, 96, 0.1)';
+
+      dark ? document.body.style.background = '#000' : document.body.style.background = 'rgba(39, 174, 96, 0.1)';
     });
   }
 
