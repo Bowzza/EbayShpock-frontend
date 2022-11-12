@@ -6,7 +6,7 @@
   <div class="mt-5 d-flex justify-content-center" id="search-container" style="width: 100%;">
     <div class="position-fixed d-flex justify-content-center align-items-center" id="filter" style="width: 25%; height: 60vh; left: 0px;">
       <app-filter 
-        *ngIf="searchResults.length > 0" [asc]="asc" [desc]="desc" [darkmode]="darkmode" 
+        *ngIf="searchResults.length > 0 || alreadySearched" [asc]="asc" [desc]="desc" [darkmode]="darkmode" 
         (filterEbay)="filterEbay()" (filterShpock)="filterShpock()" 
         (sortByPrice)="sortByPrice($event)" (removeFilter)="removeFilter()">
       </app-filter>
@@ -28,13 +28,13 @@
     </div>
   </div>
 
-  <section *ngIf="searchResults.length == 0" class="container d-flex align-items-center justify-content-center">
+  <section *ngIf="searchResults.length == 0 && !alreadySearched" class="container d-flex align-items-center justify-content-center">
     <img src="assets/nothingSearched.webp" class="no-search-pic" alt="nothing searched">
   </section>
   
   <button class="btn btn-primary position-fixed scroll-up" id="scroll-up" (click)="scrollToTop()"><i class="bi bi-arrow-up"></i></button>
-  <div id="showCart">
-    <app-cart [routerLink]="['/wishlist']"></app-cart>
+  <div id="showCart" *ngIf="isAuth" [routerLink]="['/wishlist']">
+    <app-cart></app-cart>
   </div>
 </section>
 

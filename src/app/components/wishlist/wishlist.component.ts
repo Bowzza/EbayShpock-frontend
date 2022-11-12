@@ -20,7 +20,7 @@ import { DarkService } from 'src/app/services/dark.service';
       ]),
       transition(':leave', [
         style({ opacity: 1}),
-        animate('250ms', style({ opacity: 0, transform: 'scale(0.8)' }))
+        animate('250ms', style({ opacity: 0, transform: 'scale(0.6)' }))
       ])
     ])
   ]

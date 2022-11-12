@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { indicate, IndicatorBehaviorSubject } from 'ngx-ready-set-go';
 import { catchError, last, map, Subscription, tap } from 'rxjs';
 import { Product } from 'src/app/model/product';
+import { AuthService } from 'src/app/services/auth.service';
 import { DarkService } from 'src/app/services/dark.service';
 import { FilterService } from 'src/app/services/filter.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -52,15 +53,21 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   private darkModeSub: Subscription;
   flyAnimation: boolean;
   alreadySearched: boolean;
+  isAuth: boolean;
+  authListenerSubs: Subscription
 
   constructor(private searchService: SearchService, private productsService: ProductsService, private router: Router, private route: ActivatedRoute,
-    private darkService: DarkService, private filterService: FilterService) {
+    private darkService: DarkService, private filterService: FilterService, private authService: AuthService) {
     
    }
 
   ngOnInit(): void {
+    this.isAuth = this.authService.getIsAuth();
+    this.authListenerSubs = this.authService.getAuthStatusListener().subscribe(isAuth => {
+      this.isAuth = isAuth;
+    });
+
     if(localStorage.getItem('token')) {
-      console.log
       this.productsService.getProducts().subscribe(res => {
         this.wishlist = res;
       });
@@ -96,6 +103,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
    this.darkModeSub.unsubscribe();
+   this.authListenerSubs.unsubscribe();
   }
 
   search(searchTerm: string) {

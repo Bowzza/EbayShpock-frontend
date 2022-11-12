@@ -34,7 +34,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   changeAnimationOfCart(animation: string) {
-    const carts = Array.from(document.querySelectorAll("#itemsInCart") as unknown as HTMLCollectionOf<HTMLElement>);
+    const carts = Array.from(document.querySelectorAll(".itemsInCart") as unknown as HTMLCollectionOf<HTMLElement>);
     carts.forEach((cart) => {
       cart.style.animation = animation;
     });

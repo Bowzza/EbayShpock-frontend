@@ -7,17 +7,19 @@
         color: #fff;
     }
 
-    #itemsInCart {
+    .itemsInCart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         position: absolute;
         right: -10px;
         bottom: -5px;
         background-color: blue;
         color: #fff;
-        font-size: 14px;
+        font-size: 13px;
         border-radius: 50%;
         height: 20px;
         width: 20px;
-        text-align: center;
         transition: .3s;
     }
 }
