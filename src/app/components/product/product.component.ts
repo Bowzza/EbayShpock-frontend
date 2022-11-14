@@ -51,6 +51,8 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   addProduct(product: Product) {
     this.addingProduct.emit(product);
+    // const card = document.querySelector('.uff') as HTMLElement;
+    // card.style.animation = 'addProductToCart .5s forwards';
   }
 
   removeProduct(id: string) {

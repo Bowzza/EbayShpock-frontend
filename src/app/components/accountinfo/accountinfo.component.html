@@ -1,6 +1,6 @@
 <section class="container d-flex flex-column justify-content-center align-items-center mt-5 gap-5">
     <i class="bi bi-person-circle"></i>
-    <h3>{{displayEmail}}</h3>
+    <h3 [class.darkMode]="darkMode">{{displayEmail}}</h3>
     <div class="d-flex flex-column gap-4">
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeEmail" i18n>Email Adresse ändern</button>
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePassword" i18n>Passwort ändern</button>

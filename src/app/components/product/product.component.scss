@@ -12,6 +12,7 @@
     border: none;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     overflow: hidden;
+    position: relative;
 }
 
 .card-img-top {
@@ -81,6 +82,18 @@
         left: -85px;
         bottom: -80px;
     }
+}
+
+@keyframes addProductToCart {
+    from {
+        top: 0;
+        left: 0;
+    }
+    to {
+        top: 30px;
+        left: 900px;
+        transform: scale(0.2);
+   } 
 }
 
 @media only screen and (max-width: 600px) {

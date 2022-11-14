@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
+import { DarkService } from 'src/app/services/dark.service';
 
 @Component({
   selector: 'app-accountinfo',
   templateUrl: './accountinfo.component.html',
   styleUrls: ['./accountinfo.component.scss']
 })
-export class AccountinfoComponent implements OnInit {
+export class AccountinfoComponent implements OnInit, OnDestroy {
 
   displayEmail: string
 
@@ -24,7 +26,10 @@ export class AccountinfoComponent implements OnInit {
 
   passwordsNotSame: boolean;
 
-  constructor(private authService: AuthService) { 
+  darkMode: boolean;
+  darkServiceSubscription: Subscription
+
+  constructor(private authService: AuthService, private darkService: DarkService) { 
     this.changeEmailForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email])
     });
@@ -37,6 +42,11 @@ export class AccountinfoComponent implements OnInit {
 
   ngOnInit(): void {
     if(localStorage.getItem('email')) this.displayEmail = localStorage.getItem('email');
+
+    this.darkServiceSubscription = this.darkService.getDarkModeListener().subscribe(mode => {
+      this.darkMode = mode;
+    });
+    if(localStorage.getItem('darkmode') === 'true') this.darkMode = true;
   }
 
   changeEmailSubmit(): void {
@@ -90,6 +100,10 @@ export class AccountinfoComponent implements OnInit {
 
   get passwordConfirmed(): any {
     return this.changePasswordForm.get('passwordConfirmed');
+  }
+
+  ngOnDestroy(): void {
+    this.darkServiceSubscription.unsubscribe();
   }
 
 }
