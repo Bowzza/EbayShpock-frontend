@@ -80,3 +80,13 @@ section > div > h1 {
         opacity: 1;
     }
 }
+
+@media only screen and (max-width: 695px) {
+    .grid-products {
+        grid-template-columns: repeat(1, minmax(280px, 1fr));
+    }
+
+    .home-searchbar {
+        width: 75%;
+    }
+}

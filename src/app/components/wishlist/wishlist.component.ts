@@ -90,7 +90,7 @@ export class WishlistComponent implements OnInit, OnDestroy {
       serverPublicKey: this.publicKey
     })
     .then(sub => {
-      console.log(sub);
+      localStorage.setItem('sub', JSON.stringify(sub));
       this.notifyService.addingSub(sub).subscribe(res => console.log(res))
     })
     .catch(err => console.log(err));
@@ -110,6 +110,8 @@ export class WishlistComponent implements OnInit, OnDestroy {
     this.notifyStatus = !this.notifyStatus;
     if(this.notifyStatus) {
       this.pushSubscription();
+    } else {
+      localStorage.removeItem('sub');
     }
     this.notifyService.postNotifyStatus().subscribe();
   }
