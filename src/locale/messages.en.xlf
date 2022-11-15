@@ -406,6 +406,154 @@
           <context context-type="linenumber">24,26</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="6450447815318957056" datatype="html">
+        <source>Email Adresse ändern</source>
+        <target>Change email address</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6187296087604906467" datatype="html">
+        <source>Passwort ändern</source>
+        <target>Change password</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7867164159870408221" datatype="html">
+        <source>Email Adresse</source>
+        <target>Email Address</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/registration/registration.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7867164159870408221" datatype="html">
+        <source>Email Adresse</source>
+        <target>Email Address</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/registration/registration.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1221945801562973516" datatype="html">
+        <source>Bitte geben Sie eine Email an.</source>
+        <target>Please provide an email.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/registration/registration.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5812460008819749468" datatype="html">
+        <source>Email Adresse ist nicht gültig.</source>
+        <target>Please provide a valid email.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/registration/registration.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3660980502894559810" datatype="html">
+        <source>Bitte geben Sie eine Passwort an.</source>
+        <target>Please provide a password.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6034624628711894533" datatype="html">
+        <source>Passwort muss mindestens 8 Zeichen lang sein.</source>
+        <target>The password must be at least 8 characters long.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="415721342826823444" datatype="html">
+        <source>Passwort bestätigen</source>
+        <target>Confirm password</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/registration/registration.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9076714952817634247" datatype="html">
+        <source>Die Passwörter müssen übereinstimmen.</source>
+        <target>The passwords must match.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7941787849630470622" datatype="html">
+        <source>Passwort ändern<x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div *ngIf=&quot;loadingForm&quot; class=&quot;spinner-border text-light&quot; role=&quot;status&quot; style=&quot;width: 1.5rem; height: 1.5rem;&quot;&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></source>
+        <target>Change password<x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div *ngIf=&quot;loadingForm&quot; class=&quot;spinner-border text-light&quot; role=&quot;status&quot; style=&quot;width: 1.5rem; height: 1.5rem;&quot;&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">65,66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1452276374228150608" datatype="html">
+        <source>Email Adresse ändern<x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div *ngIf=&quot;loadingForm&quot; class=&quot;spinner-border text-light&quot; role=&quot;status&quot; style=&quot;width: 1.5rem; height: 1.5rem;&quot;&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></source>
+        <target>Change email address<x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div *ngIf=&quot;loadingForm&quot; class=&quot;spinner-border text-light&quot; role=&quot;status&quot; style=&quot;width: 1.5rem; height: 1.5rem;&quot;&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/accountinfo/accountinfo.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
