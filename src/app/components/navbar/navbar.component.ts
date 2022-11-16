@@ -45,10 +45,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
 
     if(localStorage.getItem('darkmode') === 'true') this.darkmode = true;
-    if(this.darkmode) document.getElementById('switchTheme')?.setAttribute('checked', 'false');
     const string  = window.location.href.split('/');
     this.language = string[3];
-    console.log('navbar: '+this.language);
   }
 
   ngOnDestroy(): void {

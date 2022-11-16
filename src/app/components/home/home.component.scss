@@ -86,7 +86,15 @@ section > div > h1 {
         grid-template-columns: repeat(1, minmax(280px, 1fr));
     }
 
+    .darkCard:nth-child(2), .darkCard:nth-child(3), .card:nth-child(2), .card:nth-child(3) {
+        margin-top: 25px;
+    }
+
     .home-searchbar {
         width: 75%;
+    }
+
+    h1 {
+        font-size: 35px;
     }
 }

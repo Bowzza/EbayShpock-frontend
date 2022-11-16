@@ -2,6 +2,19 @@
     width: 20%;
 }
 
+img {
+    height: 35px;
+    width: 35px;
+}
+
+.themeMode {
+    right: 10px;
+}
+
+.themeMode:hover {
+    cursor: pointer;
+}
+
 
 @media only screen and (max-width: 991px) {
     .select-width {
@@ -9,7 +22,11 @@
         margin-bottom: 7px;
     }
 
-    .themeBtn {
-        margin-bottom: 7px;
+    .themeMode {
+        position: static !important;
+    }
+
+    app-cart {
+        display: none;
     }
   }
