@@ -17,8 +17,8 @@
           </li>
           <app-cart *ngIf="isAuth" [routerLink]="['/wishlist']" class="me-4 ms-2"></app-cart>
           <div class="themeMode position-absolute" (click)="toggleDarkMode()">
-            <img *ngIf="!darkmode" src="../../../assets/lightmode.svg" alt="lightmode">
-            <img *ngIf="darkmode" src="../../../assets/darkmode.svg" alt="darkmode">
+            <img *ngIf="!darkmode" src="assets/lightmode.svg" alt="lightmode">
+            <img *ngIf="darkmode" src="assets/darkmode.svg" alt="darkmode">
           </div>
         </ul>
 
