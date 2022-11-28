@@ -1,11 +1,10 @@
 {
-  "name": "frontend",
-  "version": "0.0.0",
+  "name": "EbayShpock",
+  "version": "1.0.0",
   "scripts": {
-    "heroku-postbuild": "ng build --localize",
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build",
+    "build": "ng build --localize",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
