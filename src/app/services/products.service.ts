@@ -5,8 +5,8 @@ import { Product } from '../model/product';
 import { environment } from '../../environments/environment';
 
 
-// const PRODUCT_API = 'http://localhost:3000/api/users';
-const PRODUCT_API = 'https://ebayshpock-backend.onrender.com/api/users';
+const PRODUCT_API = 'http://localhost:3000/api/users';
+// const PRODUCT_API = 'https://ebayshpock-backend.onrender.com/api/users';
  
 
 @Injectable({
