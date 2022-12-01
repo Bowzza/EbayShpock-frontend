@@ -1,7 +1,7 @@
 # Ebay/Shpock Scraper - Frontend
 For this you also will need the server from this repository: https://github.com/Bowzza/EbayShpock-backend
 
-Online Website: https://ebayshpock.herokuapp.com/de-AT/home
+Online Website: https://illustrious-mochi-f2dbdd.netlify.app/de-AT/home
 
 ## Functions:
 Registration</br>
@@ -23,7 +23,8 @@ Darkmode</br>
 1. `git clone https://github.com/Bowzza/EbayShpock-frontend.git`
 2. `cd EbayShpock-frontend`
 3. `npm i`
-4. `ng serve`
+4. `ng build --localize`
+4. `node server.js`
 
 ## Important Information!
-Push notification is only working on the online website: https://ebayshpock-scraper.herokuapp.com/de-AT/home
+Push notification is only working on the online website: https://illustrious-mochi-f2dbdd.netlify.app/de-AT/home
