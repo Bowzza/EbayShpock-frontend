@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 
 
 // const API = 'http://localhost:3000/api/notify';
-const API = 'https://ebayshpock-backend.herokuapp.com/api/notify';
+const API = 'https://ebayshpock-backend.onrender.com/api/notify';
 
 
 @Injectable({

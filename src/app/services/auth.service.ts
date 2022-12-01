@@ -6,7 +6,7 @@ import { AuthData } from '../model/auth-data';
 import { environment } from '../../environments/environment';
 
 // const AUTH_API = 'http://localhost:3000/api/users/';
-const AUTH_API = 'https://ebayshpock-backend.herokuapp.com/api/users/';
+const AUTH_API = 'https://ebayshpock-backend.onrender.com/api/users/';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
